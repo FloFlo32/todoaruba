@@ -1,26 +1,211 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+/* Class-based dark mode so we can ship a theme toggle (not OS-locked). */
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ────────────────────────────────────────────────────────────────────────────
+ *  DESIGN TOKENS  —  the system that stops this site looking AI-generated.
+ * ────────────────────────────────────────────────────────────────────────────
+ *  Everything is OKLCH (perceptual). Re-skin the entire site by changing ONE
+ *  number below: --brand-hue. The whole primary scale derives from it.
+ *  Edit brand.config.ts + run `npm run brand` to set it from your config.
+ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* brand:hue:start */
+  --brand-hue: 265; /* set by brand.config.ts */
+/* brand:hue:end */
+
+  /* radius — brand:corners controls this via `npm run brand` */
+  --radius: 0.75rem;
+
+  /* Neutrals tuned with a hint of brand hue (cool, not dead gray) */
+  --background: oklch(0.99 0.004 var(--brand-hue));
+  --foreground: oklch(0.18 0.02 var(--brand-hue));
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 var(--brand-hue));
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 var(--brand-hue));
+
+  /* Brand primary scale — all derived from --brand-hue */
+  --primary: oklch(0.58 0.2 var(--brand-hue));
+  --primary-foreground: oklch(0.99 0.01 var(--brand-hue));
+
+  --secondary: oklch(0.96 0.01 var(--brand-hue));
+  --secondary-foreground: oklch(0.25 0.03 var(--brand-hue));
+
+  --muted: oklch(0.96 0.008 var(--brand-hue));
+  --muted-foreground: oklch(0.52 0.02 var(--brand-hue));
+
+  --accent: oklch(0.95 0.03 var(--brand-hue));
+  --accent-foreground: oklch(0.25 0.05 var(--brand-hue));
+
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0.01 25);
+
+  --border: oklch(0.91 0.01 var(--brand-hue));
+  --input: oklch(0.91 0.01 var(--brand-hue));
+  --ring: oklch(0.58 0.2 var(--brand-hue));
+
+  /* Decorative gradient stops for hero/aurora effects */
+  --aurora-1: oklch(0.7 0.2 var(--brand-hue));
+  --aurora-2: oklch(0.72 0.18 calc(var(--brand-hue) + 60));
+  --aurora-3: oklch(0.75 0.16 calc(var(--brand-hue) - 50));
 }
 
+.dark {
+  /* Near-black mono base: surfaces stay neutral; violet is reserved as the accent. */
+  --background: oklch(0.15 0.004 var(--brand-hue));
+  --foreground: oklch(0.97 0.006 var(--brand-hue));
+
+  --card: oklch(0.185 0.005 var(--brand-hue));
+  --card-foreground: oklch(0.97 0.006 var(--brand-hue));
+  --popover: oklch(0.185 0.005 var(--brand-hue));
+  --popover-foreground: oklch(0.97 0.006 var(--brand-hue));
+
+  --primary: oklch(0.7 0.19 var(--brand-hue));
+  --primary-foreground: oklch(0.15 0.02 var(--brand-hue));
+
+  --secondary: oklch(0.24 0.006 var(--brand-hue));
+  --secondary-foreground: oklch(0.97 0.006 var(--brand-hue));
+
+  --muted: oklch(0.23 0.006 var(--brand-hue));
+  --muted-foreground: oklch(0.72 0.012 var(--brand-hue));
+
+  --accent: oklch(0.27 0.012 var(--brand-hue));
+  --accent-foreground: oklch(0.97 0.006 var(--brand-hue));
+
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-foreground: oklch(0.97 0.01 25);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.7 0.19 var(--brand-hue));
+
+  --aurora-1: oklch(0.65 0.22 var(--brand-hue));
+  --aurora-2: oklch(0.68 0.2 calc(var(--brand-hue) + 60));
+  --aurora-3: oklch(0.7 0.18 calc(var(--brand-hue) - 50));
+}
+
+/* Map tokens → Tailwind theme so you can use bg-primary, text-muted-foreground… */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-aurora-1: var(--aurora-1);
+  --color-aurora-2: var(--aurora-2);
+  --color-aurora-3: var(--aurora-3);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* Fonts — wired to next/font CSS variables set in layout.tsx */
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  /* Motion */
+  --animate-aurora: aurora 18s ease-in-out infinite;
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--marquee-duration, 40s) linear infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-beam: beam 3s ease-in-out infinite;
+
+  @keyframes aurora {
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    33% { transform: translate(4%, -6%) rotate(8deg) scale(1.1); }
+    66% { transform: translate(-4%, 4%) rotate(-6deg) scale(0.95); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--marquee-gap, 1rem))); }
+  }
+  @keyframes marquee-vertical {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-100% - var(--marquee-gap, 1rem))); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes beam {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* Headlines use the display face by default — the #1 thing breaking the AI look */
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), var(--font-sans), sans-serif;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--color-primary) 28%, transparent);
+  }
+}
+
+/* Reusable utilities */
+@utility container-px {
+  padding-inline: 1.5rem;
+}
+
+/* Gradient text — allowed and encouraged here. Use to punctuate, not everywhere. */
+@utility text-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--color-foreground),
+    color-mix(in oklch, var(--color-primary) 95%, var(--color-foreground))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Brand gradient fill — for buttons, borders, panels. */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(
+    120deg,
+    var(--color-primary),
+    color-mix(in oklch, var(--color-aurora-2) 80%, var(--color-primary))
+  );
 }

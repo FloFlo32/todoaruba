@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aurora — the website factory
 
-## Getting Started
+Give it a customer's URL and an idea. It scrapes their branding, content, images,
+videos and YouTube links, then builds a **stunning, unique** website around them —
+with an AI FAQ widget — and deploys it to `<project>.getyetti.com`.
 
-First, run the development server:
+Three commands run everything:
+
+| Command | What it does |
+|---|---|
+| **`/build`** | Colleague gives a project name + reference URL + the idea → the whole repo becomes their site. Scrapes brand + content + **≥50 images** + media, designs the pages, wires the FAQ widget. |
+| **`/run`** | Runs the app and fixes every build error until it's clean. |
+| **`/deploy`** | Pushes to GitHub, creates + links a Vercel project, attaches `<project>.getyetti.com`. |
+
+> The flow: **you give a URL → I build the site → you `/run` and ask for changes → `/deploy`.**
+
+## Setup (once)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env     # add OPENAI_API_KEY (widget) + GITHUB_TOKEN + VERCEL_TOKEN (deploy)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build a site
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+In Claude Code:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+/build  acme  https://acme.com   — "a bold landing page for Acme's new product"
+/run
+/deploy
+```
 
-## Learn More
+Or run the scraper directly:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run ingest -- https://acme.com --slug acme --apply   # brand + ≥50 images + media
+npm run brand                                            # re-skin from brand.config.ts
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## What every site ships with
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **A real design system** — OKLCH tokens re-skinned from one hue; **gradients welcome**.
+- **Unique, rich UI** — image galleries, slideshows/carousels, distinctive navbars, bento,
+  marquees, motion. lucide icons throughout. Real images, never placeholders.
+- **An AI FAQ widget** — grounded in `content/knowledge.md` (seeded by the scrape).
+- **A `/brand-guide` page** — live colors, type, components.
 
-## Deploy on Vercel
+## The stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Next.js 16 (App Router/RSC) · Tailwind v4 (no `tailwind.config.js`) · shadcn/ui ·
+`motion` · lucide-react · OpenAI (widget).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Layout
+
+```
+brand.config.ts          single source of truth (name, color, fonts, domain)
+app/                     routes — page.tsx, brand-guide/, api/chat/ (widget)
+components/{sections,ui,magic,widget}   magic/ = gallery, carousel, reveal, aurora, …
+content/knowledge.md     the FAQ widget's source of truth
+ideas/<slug>/            brief + scraped brand.json / content.md / media.json + inspiration
+public/ingested/<slug>/  downloaded customer images
+scripts/                 ingest-url (scraper), apply-brand, deploy
+.claude/skills/          build · run · deploy
+CLAUDE.md                the design law + how to build
+```
+
+See [`CLAUDE.md`](./CLAUDE.md) for the design rules.
