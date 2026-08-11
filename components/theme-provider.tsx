@@ -21,6 +21,7 @@ export function useTheme() {
 
   React.useEffect(() => {
     const isDark = document.documentElement.classList.contains("dark");
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of external DOM state (set by ThemeScript) on mount
     setThemeState(isDark ? "dark" : "light");
   }, []);
 

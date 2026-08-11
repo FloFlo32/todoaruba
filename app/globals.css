@@ -15,7 +15,7 @@
 
 :root {
   /* brand:hue:start */
-  --brand-hue: 265; /* set by brand.config.ts */
+  --brand-hue: 183; /* set by brand.config.ts */
 /* brand:hue:end */
 
   /* radius — brand:corners controls this via `npm run brand` */

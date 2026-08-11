@@ -1,4 +1,4 @@
-# Aurora — the website factory
+# Todo Aruba
 
 Give it a customer's URL and an idea. It scrapes their branding, content, images,
 videos and YouTube links, then builds a **stunning, unique** website around them —

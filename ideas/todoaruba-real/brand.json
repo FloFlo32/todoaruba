@@ -1,0 +1,419 @@
+{
+  "source": "https://www.myarubaguide.com",
+  "ingestedFromHost": "myarubaguide.com",
+  "pagesCrawled": 14,
+  "name": "My Aruba Guide",
+  "tagline": "What to do on Aruba - Your tour guide on Aruba | My Aruba Guide",
+  "description": "Discover what to do in Aruba with My Aruba Guide. Find out the best hotels, restaurants, tours & activities. Book your tour now!",
+  "domain": "myarubaguide.com",
+  "brandColor": {
+    "hex": "#f13b77",
+    "src": "css-frequency",
+    "oklchHue": 7
+  },
+  "theme": {
+    "hue": 7
+  },
+  "fonts": [
+    "Fraunces",
+    "Inter"
+  ],
+  "logo": null,
+  "logoNote": "Logo not auto-found — grab the navbar logo manually",
+  "favicon": "https://www.myarubaguide.com/undefined",
+  "images": [
+    "/ingested/todoaruba-real/img-003.svg",
+    "/ingested/todoaruba-real/img-004.svg",
+    "/ingested/todoaruba-real/img-008.svg",
+    "/ingested/todoaruba-real/img-012.webp",
+    "/ingested/todoaruba-real/img-013.webp",
+    "/ingested/todoaruba-real/img-014.webp",
+    "/ingested/todoaruba-real/img-017.webp",
+    "/ingested/todoaruba-real/img-019.webp",
+    "/ingested/todoaruba-real/img-021.webp",
+    "/ingested/todoaruba-real/img-022.webp",
+    "/ingested/todoaruba-real/img-023.webp",
+    "/ingested/todoaruba-real/img-024.webp",
+    "/ingested/todoaruba-real/img-025.webp",
+    "/ingested/todoaruba-real/img-026.webp",
+    "/ingested/todoaruba-real/img-027.webp",
+    "/ingested/todoaruba-real/img-028.webp",
+    "/ingested/todoaruba-real/img-029.webp",
+    "/ingested/todoaruba-real/img-030.webp",
+    "/ingested/todoaruba-real/img-031.webp",
+    "/ingested/todoaruba-real/img-032.webp",
+    "/ingested/todoaruba-real/img-033.webp",
+    "/ingested/todoaruba-real/img-034.webp",
+    "/ingested/todoaruba-real/img-035.webp",
+    "/ingested/todoaruba-real/img-036.webp",
+    "/ingested/todoaruba-real/img-037.webp",
+    "/ingested/todoaruba-real/img-038.webp",
+    "/ingested/todoaruba-real/img-039.webp",
+    "/ingested/todoaruba-real/img-040.webp",
+    "/ingested/todoaruba-real/img-041.webp",
+    "/ingested/todoaruba-real/img-042.webp",
+    "/ingested/todoaruba-real/img-043.webp",
+    "/ingested/todoaruba-real/img-044.webp",
+    "/ingested/todoaruba-real/img-045.webp",
+    "/ingested/todoaruba-real/img-046.webp",
+    "/ingested/todoaruba-real/img-048.svg",
+    "/ingested/todoaruba-real/img-051.webp",
+    "/ingested/todoaruba-real/img-052.webp",
+    "/ingested/todoaruba-real/img-054.webp",
+    "/ingested/todoaruba-real/img-055.webp",
+    "/ingested/todoaruba-real/img-056.webp",
+    "/ingested/todoaruba-real/img-057.webp",
+    "/ingested/todoaruba-real/img-058.webp",
+    "/ingested/todoaruba-real/img-059.webp",
+    "/ingested/todoaruba-real/img-060.webp"
+  ],
+  "imageCount": 44,
+  "social": {
+    "email": "info@myarubaguide.com",
+    "instagram": "https://www.instagram.com/myarubaguide"
+  },
+  "whatsapp": null,
+  "phone": "+2977325499",
+  "location": null,
+  "sectionOrder": [
+    "Discover Aruba",
+    "About Aruba",
+    "Traveling to Aruba",
+    "Nature & Sights",
+    "Sport & Wellness",
+    "Shopping & Lifestyle",
+    "Restaurants & Nightlife",
+    "Discover Aruba",
+    "About Aruba",
+    "Traveling to Aruba",
+    "Nature & Sights",
+    "Sport & Wellness"
+  ],
+  "navItems": [
+    {
+      "text": "Wishlist Search document.currentScript.parentElement._inlineData = { open: false, keyword: '', init() { this.keyword = this.$refs.input?.value || '' }, focusInput() { this.$refs.input?.focus({ preventScroll: true }) }, openSearch() { this.open = true this.$nextTick(() => this.focusInput()) }, close() { this.open = false }, clearOrClose() { if (this.keyword.trim()) { this.keyword = '' this.$nextTick(() => this.focusInput()) return } this.close() }, submitSearch(event) { const value = this.keyword.trim() if (!value) { event.preventDefault() this.openSearch() return } this.keyword = value if (this.$refs.input) this.$refs.input.value = value }, }",
+      "url": "https://www.myarubaguide.com/undefined",
+      "path": "/undefined"
+    }
+  ],
+  "footerItems": [
+    {
+      "text": "Traveling to Aruba",
+      "url": "https://www.myarubaguide.com/traveling-to-aruba",
+      "path": "/traveling-to-aruba"
+    },
+    {
+      "text": "Book your Activity",
+      "url": "https://www.myarubaguide.com/book-tours",
+      "path": "/book-tours"
+    },
+    {
+      "text": "Magazine",
+      "url": "https://www.myarubaguide.com/magazine",
+      "path": "/magazine"
+    },
+    {
+      "text": "Coupons",
+      "url": "https://www.myarubaguide.com/coupons",
+      "path": "/coupons"
+    },
+    {
+      "text": "Media",
+      "url": "https://www.myarubaguide.com/media",
+      "path": "/media"
+    },
+    {
+      "text": "Blog",
+      "url": "https://www.myarubaguide.com/blog",
+      "path": "/blog"
+    },
+    {
+      "text": "Boat Tours",
+      "url": "https://www.myarubaguide.com/boat-tours",
+      "path": "/boat-tours"
+    },
+    {
+      "text": "Off-Road Tours",
+      "url": "https://www.myarubaguide.com/off-road-tours",
+      "path": "/off-road-tours"
+    },
+    {
+      "text": "Bus Tours",
+      "url": "https://www.myarubaguide.com/bus-tours",
+      "path": "/bus-tours"
+    },
+    {
+      "text": "Water Activities",
+      "url": "https://www.myarubaguide.com/water-activities",
+      "path": "/water-activities"
+    },
+    {
+      "text": "Cancellation Policy",
+      "url": "https://www.myarubaguide.com/cancellation-policy",
+      "path": "/cancellation-policy"
+    },
+    {
+      "text": "Payment Options",
+      "url": "https://www.myarubaguide.com/payment-options",
+      "path": "/payment-options"
+    },
+    {
+      "text": "About Us",
+      "url": "https://www.myarubaguide.com/about-us",
+      "path": "/about-us"
+    },
+    {
+      "text": "Aruba Travel Magazine",
+      "url": "https://www.myarubaguide.com/travel-magazine",
+      "path": "/travel-magazine"
+    },
+    {
+      "text": "In-room TV Channel",
+      "url": "https://www.myarubaguide.com/videos",
+      "path": "/videos"
+    },
+    {
+      "text": "Advertise",
+      "url": "https://www.myarubaguide.com/advertise",
+      "path": "/advertise"
+    },
+    {
+      "text": "Contact",
+      "url": "https://www.myarubaguide.com/contact-my-aruba-guide",
+      "path": "/contact-my-aruba-guide"
+    },
+    {
+      "text": "Terms and Conditions",
+      "url": "https://www.myarubaguide.com/terms-and-conditions",
+      "path": "/terms-and-conditions"
+    },
+    {
+      "text": "Privacy & Cookie Statement",
+      "url": "https://www.myarubaguide.com/privacy-cookie-statement",
+      "path": "/privacy-cookie-statement"
+    },
+    {
+      "text": "Complaints",
+      "url": "https://www.myarubaguide.com/complaints",
+      "path": "/complaints"
+    }
+  ],
+  "innerPages": [
+    {
+      "path": "/nl/",
+      "title": "What to do on Aruba - Your tour guide on Aruba | My Aruba Guide",
+      "sections": [
+        "Ontdek Aruba",
+        "Over Aruba",
+        "Reizen naar Aruba",
+        "Natuur & Bezienswaardigheden",
+        "Sport & Wellness",
+        "Shoppen & Lifestyle",
+        "Restaurants & Uitgaan",
+        "Ontdek Aruba",
+        "Over Aruba",
+        "Reizen naar Aruba",
+        "Natuur & Bezienswaardigheden",
+        "Sport & Wellness"
+      ]
+    },
+    {
+      "path": "/es/",
+      "title": "What to do on Aruba - Your tour guide on Aruba | My Aruba Guide",
+      "sections": [
+        "Descubrir Aruba",
+        "Sobre Aruba",
+        "Viajar a Aruba",
+        "Naturaleza & Lugares Populares",
+        "Actividades & Bienestar",
+        "Compras & Lifestyle",
+        "Restaurantes y Vida Nocturna",
+        "Descubrir Aruba",
+        "Sobre Aruba",
+        "Viajar a Aruba",
+        "Naturaleza & Lugares Populares",
+        "Actividades & Bienestar"
+      ]
+    },
+    {
+      "path": "/pt/",
+      "title": "What to do on Aruba - Your tour guide on Aruba | My Aruba Guide",
+      "sections": [
+        "Descobrir Aruba",
+        "Sobre Aruba",
+        "Viajar para Aruba",
+        "Natureza & Lugares Populares",
+        "Atividades & Bem-estar",
+        "Compras & Lifestyle",
+        "Restaurantes e Vida Noturna",
+        "Descobrir Aruba",
+        "Sobre Aruba",
+        "Viajar para Aruba",
+        "Natureza & Lugares Populares",
+        "Atividades & Bem-estar"
+      ]
+    },
+    {
+      "path": "/my-wishlist",
+      "title": "Wishlist - My Aruba Guide | The Complete Island Guide",
+      "sections": [
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness",
+        "Shopping & Lifestyle",
+        "Restaurants & Nightlife",
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness"
+      ]
+    },
+    {
+      "path": "/media",
+      "title": "Media | My Aruba Guide | The Complete Island Guide",
+      "sections": [
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness",
+        "Shopping & Lifestyle",
+        "Restaurants & Nightlife",
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness"
+      ]
+    },
+    {
+      "path": "/blog",
+      "title": "Blogs of Aruba, the best stories on the island | My Aruba Guide",
+      "sections": [
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness",
+        "Shopping & Lifestyle",
+        "Restaurants & Nightlife",
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness"
+      ]
+    },
+    {
+      "path": "/coupons",
+      "title": "Coupons for the best offers on Aruba | My Aruba Guide",
+      "sections": [
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness",
+        "Shopping & Lifestyle",
+        "Restaurants & Nightlife",
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness"
+      ]
+    },
+    {
+      "path": "/about-us",
+      "title": "About Us - My Aruba Guide | The Complete Island Guide",
+      "sections": [
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness",
+        "Shopping & Lifestyle",
+        "Restaurants & Nightlife",
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness"
+      ]
+    },
+    {
+      "path": "/book-tours",
+      "title": "Discover & book the best tours on Aruba | My Aruba Guide",
+      "sections": [
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness",
+        "Shopping & Lifestyle",
+        "Restaurants & Nightlife",
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness"
+      ]
+    },
+    {
+      "path": "/discovers/things-to-do",
+      "title": "Things to Do in Aruba | Top Activities and Attractions",
+      "sections": [
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness",
+        "Shopping & Lifestyle",
+        "Restaurants & Nightlife",
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness"
+      ]
+    },
+    {
+      "path": "/discovers/things-to-do/beaches",
+      "title": "Beaches in Aruba | Best Beaches to Visit",
+      "sections": [
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness",
+        "Shopping & Lifestyle",
+        "Restaurants & Nightlife",
+        "Discover Aruba",
+        "About Aruba",
+        "Traveling to Aruba",
+        "Nature & Sights",
+        "Sport & Wellness"
+      ]
+    },
+    {
+      "path": "/nl/galerij",
+      "title": "Media | My Aruba Guide | De Complete Eilandgids",
+      "sections": [
+        "Ontdek Aruba",
+        "Over Aruba",
+        "Reizen naar Aruba",
+        "Natuur & Bezienswaardigheden",
+        "Sport & Wellness",
+        "Shoppen & Lifestyle",
+        "Restaurants & Uitgaan",
+        "Ontdek Aruba",
+        "Over Aruba",
+        "Reizen naar Aruba",
+        "Natuur & Bezienswaardigheden",
+        "Sport & Wellness"
+      ]
+    }
+  ]
+}

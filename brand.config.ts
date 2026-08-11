@@ -20,50 +20,54 @@
 
 export const brand = {
   /** Product / company name. Shows in the nav, hero, footer, <title>, OG tags. */
-  name: "Aurora",
+  name: "Todo Aruba",
 
   /** One-line value prop. Used in the hero sub-headline + meta description. */
-  tagline: "The starter pack for shipping websites that don't look AI-built.",
+  tagline: "Your AI trip concierge for Aruba — tell us your dates, we plan and book the rest.",
 
   /** Longer description for SEO / Open Graph. ~150 chars is ideal. */
   description:
-    "A production-grade Next.js + Tailwind + shadcn starter with a real design system, motion, and one-command deploy to Vercel.",
+    "Tell us your dates and what you love, and Todo Aruba builds a personalized day-by-day Aruba itinerary you can book instantly.",
 
-  /** Primary domain WITHOUT protocol. `/build` sets this to <project>.getyetti.com. */
-  domain: "aurora.getyetti.com",
+  /** Primary domain WITHOUT protocol. Swap to todo-aruba.com once that domain is live. */
+  domain: "todoaruba.getyetti.com",
 
   /** Theme — drives the whole color system. Run `npm run brand` after editing. */
   theme: {
-    /** Brand hue in OKLCH degrees (0–360). This single number re-skins the site. */
-    hue: 265,
+    /** Brand hue in OKLCH degrees (0–360). Tropical turquoise, matches the ocean. */
+    hue: 183,
     /** Corner style. "sharp" = modern/editorial, "rounded" = friendly, "pill" = playful. */
     corners: "rounded" as "sharp" | "rounded" | "pill",
     /** Default color scheme on first paint. */
-    defaultScheme: "dark" as "light" | "dark",
+    defaultScheme: "light" as "light" | "dark",
   },
 
   /** Fonts. Any Google Font name works — edit, then run `npm run brand`. */
   fonts: {
-    /** Big headlines. Pick something with PERSONALITY — this is what breaks the AI look. */
-    display: "Space Grotesk",
+    /** Big headlines. Warm editorial serif — travel-premium, not startup-generic. */
+    display: "Fraunces",
     /** Body / UI text. Keep it clean and readable. */
-    sans: "Geist",
-    /** Code / labels / kbd. */
+    sans: "Inter",
+    /** Code / labels / kbd — used for itinerary times, durations, prices. */
     mono: "JetBrains Mono",
   },
 
   /** Links shown in the footer + used by deploy scripts. */
   social: {
-    github: "your-org/your-repo",
-    x: "yourhandle",
-    email: "hello@aurora.example.com",
+    github: "yetti-ai/todo-aruba",
+    x: "todoaruba",
+    // TODO: set this project's real support email before launch.
+    email: "",
   },
 
   /**
-   * Contact + location. `npm run ingest` fills these from the scraped site.
+   * Contact + location.
    * - whatsapp: digits only, country code first, no "+". Set it and a click-to-chat
    *   widget appears (components/widget/whatsapp-widget.tsx).
    * - address + mapQuery: set them and the <Map> section renders a pin + embedded map.
+   * Left blank on purpose — this is a booking/itinerary product with no storefront
+   * or support line of its own yet. Don't fill these with a scraped third party's
+   * real contact details.
    */
   contact: {
     whatsapp: "",
