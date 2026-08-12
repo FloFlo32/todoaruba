@@ -5,6 +5,7 @@ import { brand } from "@/brand.config";
 const planLinks = [
   { label: "Plan My Trip", href: "/plan" },
   { label: "Things To Do", href: "/things-to-do" },
+  { label: "Where to Stay", href: "/where-to-stay" },
   { label: "Discover", href: "/discover" },
 ];
 

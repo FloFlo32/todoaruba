@@ -8,7 +8,10 @@ import { Button } from "@/components/ui/button";
 import { SearchBar } from "@/components/sections/search-bar";
 import { cn } from "@/lib/utils";
 
-const links = [{ href: "/discover", label: "Discover" }];
+const links = [
+  { href: "/where-to-stay", label: "Where to Stay" },
+  { href: "/discover", label: "Discover" },
+];
 
 const tabs = [
   { href: "/things-to-do", label: "Things To Do" },
