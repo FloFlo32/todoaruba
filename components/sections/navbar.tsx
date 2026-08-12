@@ -41,7 +41,7 @@ export function Navbar() {
       <nav className="container-px mx-auto flex h-16 max-w-6xl items-center gap-4">
         <Link href="/" className="flex shrink-0 items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Todo Aruba" className="h-9 w-auto" />
+          <img src="/logo.png" alt="Todo Aruba" className="h-13 w-auto" />
         </Link>
 
         <div className="hidden flex-1 md:block">

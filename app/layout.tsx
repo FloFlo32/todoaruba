@@ -3,7 +3,6 @@ import "./globals.css";
 import { brand } from "@/brand.config";
 import { fontVariables } from "@/lib/fonts";
 import { ThemeScript } from "@/components/theme-provider";
-import { FaqWidget } from "@/components/widget/faq-widget";
 import { WhatsAppWidget } from "@/components/widget/whatsapp-widget";
 
 const siteUrl = `https://${brand.domain}`;
@@ -43,7 +42,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col antialiased">
         {children}
-        <FaqWidget />
         <WhatsAppWidget />
       </body>
     </html>

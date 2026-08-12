@@ -15,79 +15,83 @@
 
 :root {
   /* brand:hue:start */
-  --brand-hue: 183; /* set by brand.config.ts */
+  --brand-hue: 206; /* set by brand.config.ts */
 /* brand:hue:end */
 
   /* radius — brand:corners controls this via `npm run brand` */
   --radius: 0.75rem;
 
-  /* Neutrals tuned with a hint of brand hue (cool, not dead gray) */
-  --background: oklch(0.99 0.004 var(--brand-hue));
-  --foreground: oklch(0.18 0.02 var(--brand-hue));
+  /* Neutrals tuned with a hint of brand hue (lagoon tint, not dead gray) */
+  --background: oklch(0.99 0.006 var(--brand-hue));
+  --foreground: oklch(0.17 0.025 var(--brand-hue));
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.02 var(--brand-hue));
+  --card-foreground: oklch(0.17 0.025 var(--brand-hue));
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.02 var(--brand-hue));
+  --popover-foreground: oklch(0.17 0.025 var(--brand-hue));
 
-  /* Brand primary scale — all derived from --brand-hue */
-  --primary: oklch(0.58 0.2 var(--brand-hue));
+  /* Primary — matches the turquoise in the logo mark (#46B4C1) */
+  --primary: oklch(0.53 0.12 var(--brand-hue));
   --primary-foreground: oklch(0.99 0.01 var(--brand-hue));
 
-  --secondary: oklch(0.96 0.01 var(--brand-hue));
-  --secondary-foreground: oklch(0.25 0.03 var(--brand-hue));
+  /* Secondary — the logo's navy wordmark color (#254872), used as a real second
+     brand color (secondary buttons/badges), not just a tint of the primary hue. */
+  --secondary: oklch(0.4 0.082 254);
+  --secondary-foreground: oklch(0.98 0.012 254);
 
-  --muted: oklch(0.96 0.008 var(--brand-hue));
-  --muted-foreground: oklch(0.52 0.02 var(--brand-hue));
+  --muted: oklch(0.96 0.012 var(--brand-hue));
+  --muted-foreground: oklch(0.5 0.025 var(--brand-hue));
 
-  --accent: oklch(0.95 0.03 var(--brand-hue));
-  --accent-foreground: oklch(0.25 0.05 var(--brand-hue));
+  --accent: oklch(0.93 0.045 var(--brand-hue));
+  --accent-foreground: oklch(0.28 0.05 254);
 
   --destructive: oklch(0.58 0.22 25);
   --destructive-foreground: oklch(0.99 0.01 25);
 
-  --border: oklch(0.91 0.01 var(--brand-hue));
-  --input: oklch(0.91 0.01 var(--brand-hue));
-  --ring: oklch(0.58 0.2 var(--brand-hue));
+  --border: oklch(0.9 0.018 var(--brand-hue));
+  --input: oklch(0.9 0.018 var(--brand-hue));
+  --ring: oklch(0.53 0.12 var(--brand-hue));
 
-  /* Decorative gradient stops for hero/aurora effects */
-  --aurora-1: oklch(0.7 0.2 var(--brand-hue));
-  --aurora-2: oklch(0.72 0.18 calc(var(--brand-hue) + 60));
-  --aurora-3: oklch(0.75 0.16 calc(var(--brand-hue) - 50));
+  /* Decorative gradient stops — sweep from the logo turquoise through blue to the
+     logo navy, so both brand colors show up together in hero/aurora effects. */
+  --aurora-1: oklch(0.72 0.14 var(--brand-hue));
+  --aurora-2: oklch(0.6 0.12 230);
+  --aurora-3: oklch(0.45 0.09 254);
 }
 
 .dark {
-  /* Near-black mono base: surfaces stay neutral; violet is reserved as the accent. */
-  --background: oklch(0.15 0.004 var(--brand-hue));
-  --foreground: oklch(0.97 0.006 var(--brand-hue));
+  /* Near-black lagoon base: surfaces carry a hint of teal, not dead gray. */
+  --background: oklch(0.15 0.012 var(--brand-hue));
+  --foreground: oklch(0.97 0.018 var(--brand-hue));
 
-  --card: oklch(0.185 0.005 var(--brand-hue));
-  --card-foreground: oklch(0.97 0.006 var(--brand-hue));
-  --popover: oklch(0.185 0.005 var(--brand-hue));
-  --popover-foreground: oklch(0.97 0.006 var(--brand-hue));
+  --card: oklch(0.185 0.014 var(--brand-hue));
+  --card-foreground: oklch(0.97 0.018 var(--brand-hue));
+  --popover: oklch(0.185 0.014 var(--brand-hue));
+  --popover-foreground: oklch(0.97 0.018 var(--brand-hue));
 
-  --primary: oklch(0.7 0.19 var(--brand-hue));
+  --primary: oklch(0.7 0.13 var(--brand-hue));
   --primary-foreground: oklch(0.15 0.02 var(--brand-hue));
 
-  --secondary: oklch(0.24 0.006 var(--brand-hue));
-  --secondary-foreground: oklch(0.97 0.006 var(--brand-hue));
+  /* Secondary — same logo navy, lightened just enough to read against a near-black bg. */
+  --secondary: oklch(0.34 0.06 254);
+  --secondary-foreground: oklch(0.97 0.014 254);
 
-  --muted: oklch(0.23 0.006 var(--brand-hue));
-  --muted-foreground: oklch(0.72 0.012 var(--brand-hue));
+  --muted: oklch(0.23 0.012 var(--brand-hue));
+  --muted-foreground: oklch(0.72 0.02 var(--brand-hue));
 
-  --accent: oklch(0.27 0.012 var(--brand-hue));
-  --accent-foreground: oklch(0.97 0.006 var(--brand-hue));
+  --accent: oklch(0.28 0.03 var(--brand-hue));
+  --accent-foreground: oklch(0.9 0.03 254);
 
   --destructive: oklch(0.65 0.2 25);
   --destructive-foreground: oklch(0.97 0.01 25);
 
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.7 0.19 var(--brand-hue));
+  --ring: oklch(0.7 0.13 var(--brand-hue));
 
-  --aurora-1: oklch(0.65 0.22 var(--brand-hue));
-  --aurora-2: oklch(0.68 0.2 calc(var(--brand-hue) + 60));
-  --aurora-3: oklch(0.7 0.18 calc(var(--brand-hue) - 50));
+  --aurora-1: oklch(0.68 0.16 var(--brand-hue));
+  --aurora-2: oklch(0.55 0.14 230);
+  --aurora-3: oklch(0.42 0.11 254);
 }
 
 /* Map tokens → Tailwind theme so you can use bg-primary, text-muted-foreground… */

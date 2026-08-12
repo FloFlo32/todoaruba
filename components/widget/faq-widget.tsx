@@ -101,7 +101,6 @@ export function FaqWidget() {
           </span>
           <div className="leading-tight">
             <p className="text-sm font-semibold">{brand.name} assistant</p>
-            <p className="text-xs text-muted-foreground">Answers from our FAQ</p>
           </div>
         </header>
 
