@@ -27,6 +27,8 @@ const tabGroups = [
       { href: "/things-to-do/diving", label: "Scuba Diving" },
       { href: "/things-to-do/adventure", label: "ATV & Off-Road" },
       { href: "/things-to-do/water-activities", label: "Water Sports" },
+      { href: "/things-to-do/cultural-experiences", label: "Culture" },
+      { href: "/things-to-do/nightlife", label: "Nightlife" },
     ],
   },
   {
@@ -43,7 +45,9 @@ const tabGroups = [
   },
 ];
 
-const tabs = tabGroups.flatMap((g) => g.items);
+const plainTabs = [{ href: "/transportation", label: "Transportation" }];
+
+const tabs = [...tabGroups.flatMap((g) => g.items), ...plainTabs];
 
 export function Navbar() {
   const pathname = usePathname();
@@ -127,6 +131,23 @@ export function Navbar() {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+            );
+          })}
+          {plainTabs.map((t) => {
+            const active = pathname === t.href;
+            return (
+              <Link
+                key={t.href}
+                href={t.href}
+                className={cn(
+                  "shrink-0 whitespace-nowrap border-b-2 px-3 py-3 text-sm font-medium transition-colors",
+                  active
+                    ? "border-primary text-foreground"
+                    : "border-transparent text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {t.label}
+              </Link>
             );
           })}
         </div>

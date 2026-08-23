@@ -6,6 +6,7 @@ const planLinks = [
   { label: "Plan My Trip", href: "/plan" },
   { label: "Things To Do", href: "/things-to-do" },
   { label: "Where to Stay", href: "/where-to-stay" },
+  { label: "Transportation", href: "/transportation" },
   { label: "Discover", href: "/discover" },
 ];
 

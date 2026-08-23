@@ -44,8 +44,13 @@ export const VIATOR_WIDGET = { partnerId: "P00315266", widgetRef: "W-117b7244-81
 
 /** Per-category overrides for category listing pages whose widget should show category-relevant tours instead of the default. */
 export const CATEGORY_VIATOR_WIDGETS: Partial<Record<CategorySlug, { partnerId: string; widgetRef: string }>> = {
+  adventure: VIATOR_WIDGET,
   snorkeling: { partnerId: "P00315266", widgetRef: "W-4ee54245-30c0-4525-9615-153f3cff0520" },
   diving: { partnerId: "P00315266", widgetRef: "W-f612ce70-1371-4342-9dac-787a2efcda51" },
+  "boat-tours": { partnerId: "P00315266", widgetRef: "W-c0866a52-0e5e-4479-a68d-e7bfb1f4d43e" },
+  nightlife: { partnerId: "P00315266", widgetRef: "W-5c53c9b2-5007-403c-88d9-cfaa41d7c1cb" },
+  "cultural-experiences": { partnerId: "P00315266", widgetRef: "W-5c096963-45fc-4735-875d-b9b5c10c8011" },
+  "water-activities": { partnerId: "P00315266", widgetRef: "W-170280d4-58ed-4543-8448-f428265392c7" },
 };
 
 const activityList: Omit<Activity, "viatorWidget">[] = [
