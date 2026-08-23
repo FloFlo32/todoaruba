@@ -10,7 +10,7 @@ function ViatorWidgetRaw({ partnerId, widgetRef }: { partnerId: string; widgetRe
   return (
     <>
       <div data-vi-partner-id={partnerId} data-vi-widget-ref={widgetRef} />
-      <Script async src="https://www.viator.com/orion/partner/widget.js" strategy="lazyOnload" />
+      <Script async src="https://www.viator.com/orion/partner/widget.js" strategy="afterInteractive" />
     </>
   );
 }

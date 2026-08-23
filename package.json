@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS=--max-old-space-size=4096 next dev --webpack",
+    "dev": "node api.js && NODE_OPTIONS=--max-old-space-size=4096 next dev --webpack",
     "dev:turbo": "next dev",
-    "build": "NODE_OPTIONS=--max-old-space-size=4096 next build --webpack",
-    "start": "next start",
+    "build": "node api.js && NODE_OPTIONS=--max-old-space-size=4096 next build --webpack",
+    "start": "node api.js && next start",
     "lint": "eslint",
     "brand": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/apply-brand.mjs",
     "check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check.mjs",
