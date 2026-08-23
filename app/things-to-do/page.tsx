@@ -1,13 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowUpRight, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
-import { DynamicIcon } from "@/components/icon-map";
 import { ViatorWidgetGrid } from "@/components/booking/viator-widget";
+import { ImageCard } from "@/components/magic/image-card";
 import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
 import { categories } from "@/data/categories";
-import { activities, VIATOR_WIDGET } from "@/data/activities";
+import { activities, getActivitiesByCategory, VIATOR_WIDGET, CATEGORY_VIATOR_WIDGETS } from "@/data/activities";
 import { brand } from "@/brand.config";
 
 export const metadata: Metadata = {
@@ -85,30 +85,27 @@ export default async function ThingsToDoPage({
             </p>
           </Reveal>
 
-          <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((c) => {
-              const count = activities.filter((a) => a.categories.includes(c.slug)).length;
-              return (
-                <RevealItem key={c.slug}>
-                  <Link
-                    href={`/things-to-do/${c.slug}`}
-                    className="group flex h-full flex-col gap-3 rounded-2xl border border-border/70 bg-card p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md hover:shadow-primary/5"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/15">
-                        <DynamicIcon name={c.icon} className="size-5" />
-                      </div>
-                      <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </div>
-                    <h2 className="text-lg font-semibold">{c.name}</h2>
-                    <p className="text-sm text-muted-foreground">{c.description}</p>
-                    <span className="mt-auto font-mono text-xs text-muted-foreground">
-                      {count} {count === 1 ? "activity" : "activities"}
-                    </span>
-                  </Link>
-                </RevealItem>
-              );
-            })}
+          <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {categories
+              .filter((c) => CATEGORY_VIATOR_WIDGETS[c.slug])
+              .map((c) => {
+                const inCategory = getActivitiesByCategory(c.slug);
+                const cover = inCategory[0]?.images[0];
+                if (!cover) return null;
+                return (
+                  <RevealItem key={c.slug}>
+                    <ImageCard
+                      href={`/things-to-do/${c.slug}`}
+                      src={cover}
+                      alt={c.name}
+                      eyebrow={`${inCategory.length} ${inCategory.length === 1 ? "activity" : "activities"}`}
+                      title={c.name}
+                      description={c.description}
+                      className="h-full"
+                    />
+                  </RevealItem>
+                );
+              })}
           </RevealGroup>
         </div>
       </main>

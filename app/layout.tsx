@@ -39,6 +39,9 @@ export default function RootLayout({
     <html lang="en" className={`${fontVariables} h-full`} suppressHydrationWarning>
       <head>
         <ThemeScript />
+        {/* Viator's booking widget is embedded on most pages; warm the connection early so it doesn't wait until the script tag to start the handshake. */}
+        <link rel="preconnect" href="https://www.viator.com" />
+        <link rel="preconnect" href="https://dd.viator.com" />
       </head>
       <body className="min-h-full flex flex-col antialiased">
         {children}

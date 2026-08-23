@@ -7,7 +7,7 @@ import { ViatorWidgetGrid } from "@/components/booking/viator-widget";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/magic/reveal";
 import { categories, getCategory } from "@/data/categories";
-import { getActivitiesByCategory, VIATOR_WIDGET, CATEGORY_VIATOR_WIDGETS } from "@/data/activities";
+import { getActivitiesByCategory, CATEGORY_VIATOR_WIDGETS } from "@/data/activities";
 
 export function generateStaticParams() {
   return categories.map((c) => ({ category: c.slug }));
@@ -33,13 +33,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   if (!category) notFound();
 
   const list = getActivitiesByCategory(slug);
-  const widget = CATEGORY_VIATOR_WIDGETS[category.slug] ?? VIATOR_WIDGET;
+  const widget = CATEGORY_VIATOR_WIDGETS[category.slug];
 
   return (
     <>
       <Navbar />
       <main className="flex-1">
-        <div className="container-px mx-auto max-w-6xl py-14 sm:py-20">
+        <div className="container-px mx-auto max-w-6xl pt-8 pb-14 sm:pt-10 sm:pb-20">
           <Reveal className="max-w-2xl">
             <Link href="/things-to-do" className="text-sm font-medium text-muted-foreground hover:text-foreground">
               &larr; All categories
@@ -53,13 +53,15 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
             </Button>
           </Reveal>
 
-          {list.length > 0 ? (
+          {widget ? (
             <Reveal className="mt-12">
               <ViatorWidgetGrid partnerId={widget.partnerId} widgetRef={widget.widgetRef} />
             </Reveal>
           ) : (
             <p className="mt-12 text-muted-foreground">
-              New {category.name.toLowerCase()} activities are being added soon.
+              {list.length > 0
+                ? `Bookable ${category.name.toLowerCase()} options are on the way.`
+                : `New ${category.name.toLowerCase()} activities are being added soon.`}
             </p>
           )}
         </div>
