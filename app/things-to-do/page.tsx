@@ -4,10 +4,10 @@ import { ArrowUpRight, X } from "lucide-react";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import { DynamicIcon } from "@/components/icon-map";
-import { ActivityCard } from "@/components/activity-card";
+import { ViatorWidgetGrid } from "@/components/booking/viator-widget";
 import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
 import { categories } from "@/data/categories";
-import { activities } from "@/data/activities";
+import { activities, VIATOR_WIDGET } from "@/data/activities";
 import { brand } from "@/brand.config";
 
 export const metadata: Metadata = {
@@ -55,13 +55,9 @@ export default async function ThingsToDoPage({
             </Reveal>
 
             {results.length > 0 ? (
-              <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {results.map((activity) => (
-                  <RevealItem key={activity.slug}>
-                    <ActivityCard activity={activity} />
-                  </RevealItem>
-                ))}
-              </RevealGroup>
+              <Reveal className="mt-10">
+                <ViatorWidgetGrid partnerId={VIATOR_WIDGET.partnerId} widgetRef={VIATOR_WIDGET.widgetRef} />
+              </Reveal>
             ) : (
               <div className="mt-10 rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
                 Nothing matched that search. Try browsing by category instead.

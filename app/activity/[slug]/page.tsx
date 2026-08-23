@@ -7,6 +7,7 @@ import { Footer } from "@/components/sections/footer";
 import { Gallery } from "@/components/magic/gallery";
 import { Reveal } from "@/components/magic/reveal";
 import { Button } from "@/components/ui/button";
+import { ViatorWidgetInline } from "@/components/booking/viator-widget";
 import { activities, getActivity } from "@/data/activities";
 import { getCategory } from "@/data/categories";
 import { formatDuration } from "@/lib/format";
@@ -148,17 +149,13 @@ export default async function ActivityPage({ params }: { params: Promise<{ slug:
               </Reveal>
             </div>
 
-            <Reveal delay={0.1}>
-              <div className="sticky top-24 rounded-2xl border border-border bg-card p-6">
-                <p className="text-sm text-muted-foreground">Starting from</p>
-                <p className="font-display text-3xl font-bold">
-                  ${activity.priceFrom}
-                  <span className="ml-1 text-base font-normal text-muted-foreground">{activity.priceUnit}</span>
-                </p>
-                <Button asChild size="lg" className="mt-5 w-full">
-                  <a href={`/go/${activity.slug}`}>Book Now</a>
-                </Button>
-                <Button asChild variant="outline" className="mt-2.5 w-full">
+            <Reveal delay={0.1} className="sticky top-24 space-y-3">
+              <ViatorWidgetInline
+                partnerId={activity.viatorWidget.partnerId}
+                widgetRef={activity.viatorWidget.widgetRef}
+              />
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <Button asChild variant="outline" className="w-full">
                   <Link href="/plan">Add to my itinerary</Link>
                 </Button>
                 <p className="mt-4 text-xs text-muted-foreground">{activity.cancellationPolicy}</p>

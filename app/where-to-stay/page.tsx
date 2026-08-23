@@ -70,14 +70,16 @@ export default function WhereToStayPage() {
           <RevealGroup className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {stayAreas.map((s) => (
               <RevealItem key={s.area}>
-                <ImageCard
-                  src={s.image}
-                  alt={`${s.name}, Aruba`}
-                  eyebrow={s.bestFor}
-                  title={s.name}
-                  description={s.blurb}
-                  className="h-full"
-                />
+                <div id={s.area} className="scroll-mt-32">
+                  <ImageCard
+                    src={s.image}
+                    alt={`${s.name}, Aruba`}
+                    eyebrow={s.bestFor}
+                    title={s.name}
+                    description={s.blurb}
+                    className="h-full"
+                  />
+                </div>
               </RevealItem>
             ))}
           </RevealGroup>

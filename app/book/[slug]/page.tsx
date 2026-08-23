@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
-import { BookingFlow } from "@/components/booking/booking-flow";
+import { ViatorWidget } from "@/components/booking/viator-widget";
 import { getActivity } from "@/data/activities";
 
 export const metadata: Metadata = {
@@ -19,7 +19,11 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
     <>
       <Navbar />
       <main className="flex-1">
-        <BookingFlow activity={activity} />
+        <ViatorWidget
+          activity={activity}
+          partnerId={activity.viatorWidget.partnerId}
+          widgetRef={activity.viatorWidget.widgetRef}
+        />
       </main>
       <Footer />
     </>

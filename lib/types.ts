@@ -80,6 +80,8 @@ export interface Activity {
   providerId: "fareharbor" | "bokun" | "rezdy" | "peek";
   providerActivityId: string;
   featured?: boolean;
+  /** The booking page embeds this Viator widget instead of the mock booking flow. */
+  viatorWidget: { partnerId: string; widgetRef: string };
 }
 
 export interface TripPreferences {

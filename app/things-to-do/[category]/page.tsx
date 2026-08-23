@@ -3,11 +3,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
-import { ActivityCard } from "@/components/activity-card";
+import { ViatorWidgetGrid } from "@/components/booking/viator-widget";
 import { Button } from "@/components/ui/button";
-import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
+import { Reveal } from "@/components/magic/reveal";
 import { categories, getCategory } from "@/data/categories";
-import { getActivitiesByCategory } from "@/data/activities";
+import { getActivitiesByCategory, VIATOR_WIDGET, CATEGORY_VIATOR_WIDGETS } from "@/data/activities";
 
 export function generateStaticParams() {
   return categories.map((c) => ({ category: c.slug }));
@@ -33,6 +33,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   if (!category) notFound();
 
   const list = getActivitiesByCategory(slug);
+  const widget = CATEGORY_VIATOR_WIDGETS[category.slug] ?? VIATOR_WIDGET;
 
   return (
     <>
@@ -53,13 +54,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           </Reveal>
 
           {list.length > 0 ? (
-            <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {list.map((activity) => (
-                <RevealItem key={activity.slug}>
-                  <ActivityCard activity={activity} />
-                </RevealItem>
-              ))}
-            </RevealGroup>
+            <Reveal className="mt-12">
+              <ViatorWidgetGrid partnerId={widget.partnerId} widgetRef={widget.widgetRef} />
+            </Reveal>
           ) : (
             <p className="mt-12 text-muted-foreground">
               New {category.name.toLowerCase()} activities are being added soon.

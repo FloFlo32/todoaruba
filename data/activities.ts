@@ -1,4 +1,4 @@
-import type { Activity } from "@/lib/types";
+import type { Activity, CategorySlug } from "@/lib/types";
 
 /** Unsplash photo ids, verified to resolve. One place to swap art direction. */
 const img = (id: string) =>
@@ -39,7 +39,16 @@ const PHOTO = {
 const STANDARD_CANCELLATION =
   "Free cancellation up to 24 hours before the activity start time for a full refund.";
 
-export const activities: Activity[] = [
+/** Default Viator affiliate widget, shown in place of the mock booking flow on every activity. */
+export const VIATOR_WIDGET = { partnerId: "P00315266", widgetRef: "W-117b7244-815b-460b-b7b1-382c685c3de6" };
+
+/** Per-category overrides for category listing pages whose widget should show category-relevant tours instead of the default. */
+export const CATEGORY_VIATOR_WIDGETS: Partial<Record<CategorySlug, { partnerId: string; widgetRef: string }>> = {
+  snorkeling: { partnerId: "P00315266", widgetRef: "W-4ee54245-30c0-4525-9615-153f3cff0520" },
+  diving: { partnerId: "P00315266", widgetRef: "W-f612ce70-1371-4342-9dac-787a2efcda51" },
+};
+
+const activityList: Omit<Activity, "viatorWidget">[] = [
   {
     slug: "reef-snorkel-turtle-swim",
     name: "Reef Snorkel & Turtle Swim at Boca Catalina",
@@ -508,6 +517,8 @@ export const activities: Activity[] = [
     providerActivityId: "bk-de-palm-island-20",
   },
 ];
+
+export const activities: Activity[] = activityList.map((activity) => ({ ...activity, viatorWidget: VIATOR_WIDGET }));
 
 export function getActivity(slug: string) {
   return activities.find((a) => a.slug === slug);

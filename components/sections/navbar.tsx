@@ -3,22 +3,47 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SearchBar } from "@/components/sections/search-bar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 
 const links = [{ href: "/discover", label: "Discover" }];
 
-const tabs = [
-  { href: "/things-to-do", label: "Things To Do" },
-  { href: "/things-to-do/boat-tours", label: "Boat Trips" },
-  { href: "/things-to-do/snorkeling", label: "Snorkeling" },
-  { href: "/things-to-do/diving", label: "Scuba Diving" },
-  { href: "/things-to-do/adventure", label: "ATV & Off-Road" },
-  { href: "/things-to-do/water-activities", label: "Water Sports" },
-  { href: "/where-to-stay", label: "Where to Stay" },
+const tabGroups = [
+  {
+    base: "/things-to-do",
+    label: "Things To Do",
+    items: [
+      { href: "/things-to-do", label: "Things To Do" },
+      { href: "/things-to-do/boat-tours", label: "Boat Trips" },
+      { href: "/things-to-do/snorkeling", label: "Snorkeling" },
+      { href: "/things-to-do/diving", label: "Scuba Diving" },
+      { href: "/things-to-do/adventure", label: "ATV & Off-Road" },
+      { href: "/things-to-do/water-activities", label: "Water Sports" },
+    ],
+  },
+  {
+    base: "/where-to-stay",
+    label: "Where to Stay",
+    items: [
+      { href: "/where-to-stay", label: "Where to Stay" },
+      { href: "/where-to-stay#palm-beach", label: "Palm Beach" },
+      { href: "/where-to-stay#eagle-beach", label: "Eagle Beach" },
+      { href: "/where-to-stay#malmok", label: "Malmok" },
+      { href: "/where-to-stay#oranjestad", label: "Oranjestad" },
+      { href: "/where-to-stay#de-palm", label: "De Palm" },
+    ],
+  },
 ];
+
+const tabs = tabGroups.flatMap((g) => g.items);
 
 export function Navbar() {
   const pathname = usePathname();
@@ -79,21 +104,29 @@ export function Navbar() {
 
       <div className="hidden border-t border-border/60 md:block">
         <div className="container-px mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto">
-          {tabs.map((t) => {
-            const active = pathname === t.href;
+          {tabGroups.map((g) => {
+            const active = pathname === g.base || pathname.startsWith(`${g.base}/`);
             return (
-              <Link
-                key={t.href}
-                href={t.href}
-                className={cn(
-                  "shrink-0 whitespace-nowrap border-b-2 px-3 py-3 text-sm font-medium transition-colors",
-                  active
-                    ? "border-primary text-foreground"
-                    : "border-transparent text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {t.label}
-              </Link>
+              <DropdownMenu key={g.base}>
+                <DropdownMenuTrigger
+                  className={cn(
+                    "flex shrink-0 items-center gap-1 whitespace-nowrap border-b-2 px-3 py-3 text-sm font-medium outline-none transition-colors",
+                    active
+                      ? "border-primary text-foreground"
+                      : "border-transparent text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {g.label}
+                  <ChevronDown className="size-3.5" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                  {g.items.map((item) => (
+                    <DropdownMenuItem key={item.href} asChild>
+                      <Link href={item.href}>{item.label}</Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
             );
           })}
         </div>
